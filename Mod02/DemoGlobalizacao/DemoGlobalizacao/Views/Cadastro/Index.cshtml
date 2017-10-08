@@ -1,0 +1,29 @@
+﻿@using DemoGlobalizacao.Resources.Cadastro
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Cadastrar Cliente</h2>
+
+<form action="/Cadastro/Salvar" method="post">
+
+    <div>
+        <label>@Index.nome</label>
+        <input type="text" name="Nome" />
+    </div>
+
+    <div>
+        <label>@Index.idade</label>
+        <select name="Idade">
+            <option>10 - 15</option>
+            <option>16 - 30</option>
+            <option>31 - 60</option>
+            <option>Acima de 60</option>
+        </select>
+    </div>
+
+    <div>
+        @*<input type="submit"  value="Salvar" />*@
+        <button>Salvar</button>
+    </div>
+</form>

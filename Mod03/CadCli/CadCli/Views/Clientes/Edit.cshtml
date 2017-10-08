@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar Cliente</h2>
+
+<form  method="post">
+    <div>
+        <label>Nome:</label>
+        <input autofocus type="text" name="nome" value="@Model.Nome" />
+    </div>
+
+    <div>
+        <label>Idade:</label>
+        <input type="number" name="idade" value="@Model.Idade" />
+    </div>
+
+    <button>Salvar</button>
+    <a href="/Clientes">Cancelar</a>
+</form>
