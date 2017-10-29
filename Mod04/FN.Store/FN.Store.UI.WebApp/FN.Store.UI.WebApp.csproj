@@ -125,16 +125,22 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ContaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LogsController.cs" />
     <Compile Include="Controllers\ProdutosController.cs" />
     <Compile Include="Data\EF\DbInitializer.cs" />
     <Compile Include="Data\EF\StoreDataContext.cs" />
+    <Compile Include="Filters\LogAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\StringHelpers.cs" />
     <Compile Include="Models\Entity.cs" />
+    <Compile Include="Models\Log.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\TipoProduto.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -195,6 +201,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
+    <Content Include="Scripts\alterarsenha.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -225,6 +232,10 @@
     <Content Include="Views\Produtos\Index.cshtml" />
     <Content Include="Views\Shared\_menu.cshtml" />
     <Content Include="Views\Produtos\AddEdit.cshtml" />
+    <Content Include="Views\Conta\Login.cshtml" />
+    <Content Include="Views\Conta\MeuPerfil.cshtml" />
+    <Content Include="Views\Shared\_alterarsenha.cshtml" />
+    <Content Include="Views\Logs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,10 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using FN.Store.UI.WebApp.Models;
+using FN.Store.UI.WebApp.Helpers;
 
 namespace FN.Store.UI.WebApp.Data.EF
 {
-    public class DbInitializer:CreateDatabaseIfNotExists<StoreDataContext>
+    public class DbInitializer : CreateDatabaseIfNotExists<StoreDataContext>
     {
         protected override void Seed(StoreDataContext context)
         {
@@ -23,6 +24,16 @@ namespace FN.Store.UI.WebApp.Data.EF
                     new Produto(){Nome = "Picanha congelada", Preco=50.44M, TipoProduto=alimento},
                     new Produto(){Nome = "Pasta de dente colgate", Preco=20, TipoProduto=higiene}
                     }
+                );
+
+
+            context.Usuarios.AddRange(
+
+                new List<Usuario> { 
+                    new Usuario{Email="fabiano.nalin@gmail.com",Senha="123456".Encrypt()},
+                    new Usuario{Email="nalin@fansoft.com",Senha="123456".Encrypt()},
+                }
+
                 );
 
             context.SaveChanges();

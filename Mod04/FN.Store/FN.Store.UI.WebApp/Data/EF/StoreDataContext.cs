@@ -16,6 +16,8 @@ namespace FN.Store.UI.WebApp.Data.EF
 
         public DbSet<Produto> Produto { get; set; }
         public DbSet<TipoProduto> TipoProdutos { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Log> Logs { get; set; }
 
     }
 }

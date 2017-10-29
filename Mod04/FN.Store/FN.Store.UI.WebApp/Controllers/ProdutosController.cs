@@ -1,4 +1,5 @@
 ﻿using FN.Store.UI.WebApp.Data.EF;
+using FN.Store.UI.WebApp.Filters;
 using FN.Store.UI.WebApp.Models;
 using System;
 using System.Collections.Generic;
@@ -8,12 +9,13 @@ using System.Web.Mvc;
 
 namespace FN.Store.UI.WebApp.Controllers
 {
+
+    [Authorize, LogAttribute]
     public class ProdutosController : Controller
     {
 
         private readonly StoreDataContext _ctx =
             new StoreDataContext();
-
 
         public ActionResult Index()
         {
@@ -81,6 +83,12 @@ namespace FN.Store.UI.WebApp.Controllers
             }
 
             return Json(new { status = excluido, msg = mensagem });
+        }
+
+        [AllowAnonymous]
+        public string Teste()
+        {
+            return "Página aberta";
         }
 
 
