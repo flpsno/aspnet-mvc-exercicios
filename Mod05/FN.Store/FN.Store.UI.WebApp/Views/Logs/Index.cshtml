@@ -1,0 +1,35 @@
+﻿@model IEnumerable<FN.Store.UI.WebApp.Models.Log>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Meus Logs</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Controller / Action</th>
+            <th>Usuario</th>
+            <th>Data</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Local
+                </td>
+                <td>
+                    @item.Usuario.Email
+                </td>
+                <td>
+                    @item.DataCadastro.ToString("dd/MM/yy HH:mm:ss")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,40 @@
+﻿@model FN.Store.UI.WebApp.Models.LoginVM
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@if (!ViewData.ModelState.IsValid){
+<div class="alert alert-danger">
+    @Html.ValidationSummary(true)
+</div>
+}
+
+<div class="row">
+
+    <div class="col-md-6">
+        <form method="post">
+            @Html.HiddenFor(x => x.Url)
+
+            <div class="form-group">
+                <label>Email</label>
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", autofocus = "autofocus" })
+                @Html.ValidationMessageFor(m => m.Email, null, new { @class = "text-danger" })
+            </div>
+
+            <div class="form-group">
+                <label>Senha</label>
+                @Html.PasswordFor(m => m.Senha, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Senha, null, new { @class = "text-danger" })
+            </div>
+
+            <div>
+                <button class="btn btn-primary">Login</button>
+                <a class="btn btn-info" href="@Url.Action("Index", "Home")">Voltar</a>
+            </div>
+        </form>
+    </div>
+
+</div>
