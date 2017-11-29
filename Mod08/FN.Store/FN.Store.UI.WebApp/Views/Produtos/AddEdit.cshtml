@@ -1,0 +1,61 @@
+﻿@model FN.Store.Domain.Entities.Produto
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>@(Model.Id == 0 ? "Adicionar" : "Editar") produto</h2>
+
+<div>
+    @Html.ValidationSummary(true)
+</div>
+
+@*<form method="post">*@
+@using (Html.BeginForm(null, null, FormMethod.Post))
+{
+    <div class="form-group">
+        @*<label>Nome</label>*@
+        @Html.LabelFor(m => Model.Nome)
+        @*<input class="form-control" autofocus type="text" name="nome" value="@Model.Nome" />*@
+        @Html.TextBoxFor(m => m.Nome, new { @class = "form-control", autofocus = "autofocus" })
+        @Html.ValidationMessageFor(m => m.Nome, null, new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label>Tipo</label>
+        @* <select name="tipoprodutoId" class="form-control">
+            <option value="0">Selecione...</option>
+            @foreach (var item in (IEnumerable<FN.Store.UI.WebApp.Models.TipoProduto>)ViewBag.Tipos)
+            {
+                <option 
+                    @(item.Id == Model.TipoProdutoId?"selected":"")
+                    value="@item.Id">@item.Nome</option>
+            }
+        </select>*@
+
+        @Html.DropDownListFor(m => m.TipoProdutoId, new SelectList(ViewBag.Tipos, "Id", "Nome"), "Selecione ...",
+                new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.TipoProdutoId, null, new { @class = "text-danger" })
+    
+    </div>
+
+    <div class="form-group">
+        <label>Preço</label>
+        @*<input class="form-control" type="text" name="preco" value="@Model.Preco" />*@
+        @Html.TextBoxFor(x => x.Preco, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Preco, null, new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group">
+        <label>Descrição</label>
+        @*<textarea name="descricao" rows="4" class="form-control">@Model.Descricao</textarea>*@
+        @Html.TextAreaFor(x => x.Descricao, new { @class = "form-control", rows = "4" })
+        @Html.ValidationMessageFor(m => m.Descricao, null, new { @class = "text-danger" })
+    </div>
+
+    <div>
+        <button class="btn btn-primary">Salvar</button>
+        <a class="btn btn-light" href="/Produtos">Cancelar</a>
+    </div>
+}
+@*</form>*@
+

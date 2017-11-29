@@ -1,0 +1,14 @@
+﻿body {
+  padding-top: 3.5rem;
+}
+
+
+body > div.main {
+    min-height:500px;
+}
+
+@media (max-width:500px) {
+    .ocultar {
+        display: none;
+    }
+}

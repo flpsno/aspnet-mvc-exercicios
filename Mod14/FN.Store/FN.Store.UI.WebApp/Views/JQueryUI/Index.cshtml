@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Demo AutoComplete jQueryUI</h2>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<div class="ui-widget">
+  <label for="tags">Tags: </label>
+  <input id="tags">
+</div>
+
+
+@section scripts{
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        var url = "@Url.Action("Linguagens")";
+        $(function () {
+            $.getJSON(url).done(function (data) {
+                //console.log(data);
+                $("#tags").autocomplete({
+                    source: data
+                });
+            });
+            
+        });
+  </script>
+}
